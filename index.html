@@ -8,20 +8,33 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
-<body>
-
-<div class="container-fluid">
-  <h1 class="text-center">Distributed Gender Reveal</h1>
-  <div class="container-fluid text-center">
-    <button type="button" id="reveal-button" class="btn btn-primary" data-bs-toggle="button">Show Me!</button>
-  </div>
-</div>
-
-</body>
+  <body>
+    <div class="container-fluid">
+      <h1 class="text-center" style="padding-bottom: 36px; text-decoration: underline;">Clifford Gender Reveal</h1>
+      <div class="container-fluid text-center">
+        <button type="button" id="reveal-button" class="btn btn-primary" data-bs-toggle="button">Show Me!</button>
+        <h2 class="text-center" id="countdown" style="color: red; font-size: 90px;"></h2>
+        <div class="container-fluid" id="test-div"></div>
+      </div>
+    </div>
+  </body>
 </html>
 
 <script>
 $("#reveal-button").on('click', function(event) {
-  alert("Boy or Girl?");
+  $(this).hide(); // Hide the button
+  var fanfare = new Audio("fanfare.mp3"); // Create the audio sound
+  var timeleft = 5; // Set the countdown for 5 seconds
+  var downloadTimer = setInterval(function() {
+    if(timeleft <= 0){ // If the countdown is up
+      clearInterval(downloadTimer); // Clear the interval
+      $("#countdown").hide(); // Hide the countdown
+      fanfare.play(); // Play the sound
+      $("#test-div").html("<img src='boy.gif'/>"); // Display the gif
+    } else { // If the countdown is still going
+      $("#countdown").html(timeleft); // Display the updated time
+    }
+    timeleft -= 1; // Reduce the time by 1
+  }, 1000);
 });
 </script>
