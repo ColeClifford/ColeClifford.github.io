@@ -13,9 +13,15 @@
 <div class="container-fluid">
   <h1 class="text-center">Distributed Gender Reveal</h1>
   <div class="container-fluid text-center">
-    <button type="button" class="btn btn-primary" data-bs-toggle="button">Toggle button</button>
+    <button type="button" id="reveal-button" class="btn btn-primary" data-bs-toggle="button">Show Me!</button>
   </div>
 </div>
 
 </body>
 </html>
+
+<script>
+$("#reveal-button").on('click', function(event) {
+  alert("Boy or Girl?");
+});
+</script>
