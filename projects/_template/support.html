@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Support — Project Name</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <script>
+    (function() {
+      var saved = localStorage.getItem('theme');
+      if (saved) document.documentElement.setAttribute('data-theme', saved);
+      else if (window.matchMedia('(prefers-color-scheme: dark)').matches) document.documentElement.setAttribute('data-theme', 'dark');
+    })();
+  </script>
+</head>
+<body>
+  <div class="container">
+    <header class="page-header">
+      <a href="./" class="page-header__back">&larr; Back to Project Name</a>
+      <h1>Support</h1>
+    </header>
+
+    <div class="page-content">
+      <h2>Contact</h2>
+      <p>If you need help or have questions about Project Name, please reach out:</p>
+      <ul>
+        <li>Email: <a href="mailto:cole@example.com">cole@example.com</a></li>
+      </ul>
+
+      <h2>Frequently Asked Questions</h2>
+
+      <h3>How do I get started?</h3>
+      <p>Download the app from the App Store / visit the website and create an account.</p>
+
+      <h3>How do I report a bug?</h3>
+      <p>Please email us with a description of the issue, steps to reproduce it, and your device/OS version.</p>
+
+      <h3>How do I request a feature?</h3>
+      <p>We love hearing your ideas. Send us an email with your suggestion and we'll consider it for a future release.</p>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Cole Clifford</p>
+    </div>
+  </footer>
+</body>
+</html>
