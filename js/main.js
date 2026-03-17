@@ -55,29 +55,6 @@ const timeline = [
 ];
 
 const feed = [
-  {
-    type: "medium",
-    title: "Space 2 Vec — Using Deep Learning to Find Supernovae",
-    date: "2019-06-15",
-    description:
-      "How we built a CNN pipeline at Dessa to identify Type Ia Supernovae from telescope imagery.",
-    url: "https://medium.com/dessa-news/space-2-vec-fd900f5566",
-  },
-  {
-    type: "news",
-    title: "Dessa Engineers Build ML Supernova Identification System",
-    date: "2019-06-20",
-    description: "BetaKit coverage of the Space2Vec project.",
-    url: "https://betakit.com/dessa-engineers-build-machine-learning-supernova-identification-system/",
-  },
-  {
-    type: "post",
-    title: "Welcome to My Feed",
-    date: "2026-03-16",
-    description: "A quick intro to what you'll find here.",
-    html: `<p>I'll be sharing links to articles, research, and thoughts on building software and ML systems.</p>
-           <p>Expect a mix of Medium posts, news coverage, LinkedIn updates, and original writing.</p>`,
-  },
   // Add more feed items here:
   // {
   //   type: "linkedin",
@@ -292,7 +269,9 @@ function createFeedItemEl(item, index) {
     const body = document.getElementById("feed-body-" + btn.dataset.index);
     if (body) {
       body.classList.toggle("open");
-      btn.innerHTML = body.classList.contains("open") ? "Close &uarr;" : "Read &darr;";
+      btn.innerHTML = body.classList.contains("open")
+        ? "Close &uarr;"
+        : "Read &darr;";
     }
   });
 })();
@@ -358,7 +337,9 @@ function createFeedItemEl(item, index) {
     const body = document.getElementById("feed-body-" + btn.dataset.index);
     if (body) {
       body.classList.toggle("open");
-      btn.innerHTML = body.classList.contains("open") ? "Close &uarr;" : "Read &darr;";
+      btn.innerHTML = body.classList.contains("open")
+        ? "Close &uarr;"
+        : "Read &darr;";
     }
   });
 })();
