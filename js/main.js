@@ -26,10 +26,7 @@ const projects = [
     title: "Cards by Cole",
     description: "A completely offline, device-to-device card game.",
     tags: ["Swift", "iOS"],
-    links: {
-      arxiv: "https://arxiv.org/abs/2106.04283",
-      project: "https://next-week-tonight.github.io/NWT/",
-    },
+    links: {},
   },
 ];
 
