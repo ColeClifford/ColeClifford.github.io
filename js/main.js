@@ -54,6 +54,43 @@ const timeline = [
   // Add more entries here
 ];
 
+const feed = [
+  {
+    type: "medium",
+    title: "Space 2 Vec — Using Deep Learning to Find Supernovae",
+    date: "2019-06-15",
+    description:
+      "How we built a CNN pipeline at Dessa to identify Type Ia Supernovae from telescope imagery.",
+    url: "https://medium.com/dessa-news/space-2-vec-fd900f5566",
+  },
+  {
+    type: "news",
+    title: "Dessa Engineers Build ML Supernova Identification System",
+    date: "2019-06-20",
+    description: "BetaKit coverage of the Space2Vec project.",
+    url: "https://betakit.com/dessa-engineers-build-machine-learning-supernova-identification-system/",
+  },
+  {
+    type: "post",
+    title: "Welcome to My Feed",
+    date: "2026-03-16",
+    description: "A quick intro to what you'll find here.",
+    html: `<p>I'll be sharing links to articles, research, and thoughts on building software and ML systems.</p>
+           <p>Expect a mix of Medium posts, news coverage, LinkedIn updates, and original writing.</p>`,
+  },
+  // Add more feed items here:
+  // {
+  //   type: "linkedin",
+  //   title: "Post Title",
+  //   date: "2026-01-01",
+  //   description: "Short summary.",
+  //   url: "https://linkedin.com/...",
+  // },
+];
+
+// Sort feed by date descending
+feed.sort((a, b) => new Date(b.date) - new Date(a.date));
+
 // ===== Theme Toggle =====
 (function initTheme() {
   const toggle = document.querySelector(".theme-toggle");
@@ -83,6 +120,7 @@ const timeline = [
 (function renderProjects() {
   const grid = document.getElementById("projects-grid");
   const filterBar = document.getElementById("filter-bar");
+  if (!grid || !filterBar) return;
 
   // Collect all unique tags
   const allTags = [...new Set(projects.flatMap((p) => p.tags))].sort();
@@ -154,6 +192,7 @@ const timeline = [
 // ===== Render Timeline =====
 (function renderTimeline() {
   const container = document.getElementById("timeline");
+  if (!container) return;
 
   timeline.forEach((item) => {
     const el = document.createElement("div");
@@ -170,7 +209,8 @@ const timeline = [
 })();
 
 // ===== Footer Year =====
-document.getElementById("year").textContent = new Date().getFullYear();
+const yearEl = document.getElementById("year");
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 // ===== Scroll Fade-in =====
 (function initScrollAnimations() {
@@ -187,6 +227,140 @@ document.getElementById("year").textContent = new Date().getFullYear();
   );
 
   document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
+})();
+
+// ===== Feed Helpers =====
+function formatFeedDate(dateStr) {
+  const d = new Date(dateStr + "T00:00:00");
+  return d.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+}
+
+function createFeedItemEl(item, index) {
+  const el = document.createElement("div");
+  el.className = "feed-item";
+  el.dataset.type = item.type;
+
+  const isExternal = item.url;
+  const titleHtml = isExternal
+    ? `<a href="${item.url}" target="_blank" rel="noopener">${item.title}</a>`
+    : `<span>${item.title}</span>`;
+
+  let actionHtml = "";
+  if (isExternal) {
+    actionHtml = `<a href="${item.url}" target="_blank" rel="noopener" style="font-size:0.85rem;font-weight:500;">Read &rarr;</a>`;
+  } else if (item.html) {
+    actionHtml = `<button class="feed-item__read-toggle" data-index="${index}">Read &darr;</button>`;
+  }
+
+  el.innerHTML = `
+    <div class="feed-item__header">
+      <span class="feed-item__type feed-item__type--${item.type}">${item.type}</span>
+      <span class="feed-item__date">${formatFeedDate(item.date)}</span>
+    </div>
+    <div class="feed-item__title">${titleHtml}</div>
+    <p class="feed-item__desc">${item.description}</p>
+    ${actionHtml}
+    ${item.html ? `<div class="feed-item__body" id="feed-body-${index}">${item.html}</div>` : ""}
+  `;
+
+  return el;
+}
+
+// ===== Feed Preview (Homepage) =====
+(function renderFeedPreview() {
+  const container = document.getElementById("feed-preview");
+  if (!container) return;
+
+  const previewItems = feed.slice(0, 3);
+  const list = document.createElement("div");
+  list.className = "feed-list";
+
+  previewItems.forEach((item, i) => {
+    list.appendChild(createFeedItemEl(item, i));
+  });
+
+  container.appendChild(list);
+
+  // Handle read toggles for post types
+  container.addEventListener("click", function (e) {
+    const btn = e.target.closest(".feed-item__read-toggle");
+    if (!btn) return;
+    const body = document.getElementById("feed-body-" + btn.dataset.index);
+    if (body) {
+      body.classList.toggle("open");
+      btn.innerHTML = body.classList.contains("open") ? "Close &uarr;" : "Read &darr;";
+    }
+  });
+})();
+
+// ===== Feed Page (Full) =====
+(function renderFeedPage() {
+  const grid = document.getElementById("feed-grid");
+  const filterBar = document.getElementById("feed-filter-bar");
+  if (!grid || !filterBar) return;
+
+  // Collect unique types
+  const allTypes = [...new Set(feed.map((item) => item.type))].sort();
+
+  // Render filter buttons
+  const allBtn = document.createElement("button");
+  allBtn.className = "filter-btn active";
+  allBtn.textContent = "All";
+  allBtn.dataset.type = "all";
+  filterBar.appendChild(allBtn);
+
+  allTypes.forEach((type) => {
+    const btn = document.createElement("button");
+    btn.className = "filter-btn";
+    btn.textContent = type.charAt(0).toUpperCase() + type.slice(1);
+    btn.dataset.type = type;
+    filterBar.appendChild(btn);
+  });
+
+  // Render all feed items
+  const list = document.createElement("div");
+  list.className = "feed-list";
+
+  feed.forEach((item, i) => {
+    list.appendChild(createFeedItemEl(item, i));
+  });
+
+  grid.appendChild(list);
+
+  // Filter logic
+  filterBar.addEventListener("click", function (e) {
+    const btn = e.target.closest(".filter-btn");
+    if (!btn) return;
+
+    filterBar
+      .querySelectorAll(".filter-btn")
+      .forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
+
+    const type = btn.dataset.type;
+    list.querySelectorAll(".feed-item").forEach((item) => {
+      if (type === "all" || item.dataset.type === type) {
+        item.classList.remove("hidden");
+      } else {
+        item.classList.add("hidden");
+      }
+    });
+  });
+
+  // Handle read toggles
+  grid.addEventListener("click", function (e) {
+    const btn = e.target.closest(".feed-item__read-toggle");
+    if (!btn) return;
+    const body = document.getElementById("feed-body-" + btn.dataset.index);
+    if (body) {
+      body.classList.toggle("open");
+      btn.innerHTML = body.classList.contains("open") ? "Close &uarr;" : "Read &darr;";
+    }
+  });
 })();
 
 // ===== Mobile Nav Toggle =====
