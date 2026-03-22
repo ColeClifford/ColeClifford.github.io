@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <style>
+    rect { fill: #6366f1; }
+    text { fill: #fff; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 28px; }
+    @media (prefers-color-scheme: dark) {
+      rect { fill: #818cf8; }
+      text { fill: #0a0a0a; }
+    }
+  </style>
+  <rect width="64" height="64" rx="14"/>
+  <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle">CC</text>
+</svg>

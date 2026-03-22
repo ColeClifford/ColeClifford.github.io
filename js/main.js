@@ -4,38 +4,52 @@
 const projects = [
   {
     title: "Pickford",
-    description: "",
-    tags: [],
-    links: {},
+    description:
+      "AI-powered storytelling platform exploring the future of interactive narratives.",
+    tags: ["Storytelling", "Deep Learning"],
+    links: {
+      site: "https://pickford.ai/",
+      product: "https://crowd.pickford.ai/",
+    },
   },
   {
-    title: "OpenUSD",
-    description: "",
-    tags: [],
-    links: {},
+    title: "AOUSD",
+    description:
+      "Contributing to the open standard for 3D content creation and interchange.",
+    tags: ["3D", "Open Source"],
+    links: {
+      site: "https://aousd.org/",
+    },
   },
   {
     title: "Director Style Sheets",
-    description: "",
-    tags: [],
-    links: {},
+    description: "A declarative language for directing AI-generated content.",
+    tags: ["Storytelling", "Open Source"],
+    links: {
+      slides:
+        "https://drive.google.com/file/d/1bnDxDqSc0RyWADfBRrLdVK5u3tQvlXV3/view",
+    },
   },
   {
     title: "Atlas",
-    description: "",
-    tags: [],
-    links: {},
+    description: "Open-source ML experiment management and tracking platform.",
+    tags: ["Python", "Deep Learning", "Open Source"],
+    links: {
+      producthunt:
+        "https://www.producthunt.com/products/foundations-atlas?launch=foundations-atlas",
+      github: "https://github.com/dessa-oss/atlas",
+    },
   },
   {
     title: "Orbit",
-    description: "",
-    tags: [],
+    description: "ML model deployment and serving infrastructure.",
+    tags: ["Python", "Deep Learning"],
     links: {},
   },
   {
     title: "Space2Vec",
-    description: "Using CNN's to find Type Ia Supernovae.",
-    tags: ["Python", "Deep Learning"],
+    description: "Using CNNs to find Type Ia Supernovae for SETI.",
+    tags: ["Space", "Python", "Deep Learning"],
     links: {
       medium: "https://medium.com/dessa-news/space-2-vec-fd900f5566",
       betakit:
@@ -54,8 +68,9 @@ const projects = [
   },
   {
     title: "Pavlov",
-    description: "",
-    tags: [],
+    description:
+      "A unique embedding technique for multi-model relational learning.",
+    tags: ["Python", "Deep Learning"],
     links: {},
   },
   {
@@ -66,9 +81,19 @@ const projects = [
   },
   {
     title: "Solon",
-    description: "",
-    tags: [],
-    links: {},
+    description: "A blockchain-based voting system.",
+    tags: ["Python", "Blockchain", "Open Source"],
+    links: {
+      github: "https://github.com/ColeClifford/Solon/tree/mvp",
+    },
+  },
+  {
+    title: "SETI FDL",
+    description: "A research lab for SETI.",
+    tags: ["Space", "Deep Learning"],
+    links: {
+      site: "https://fdl.ai/",
+    },
   },
 ];
 
@@ -97,14 +122,153 @@ const timeline = [
 ];
 
 const feed = [
-  // Add more feed items here:
-  // {
-  //   type: "linkedin",
-  //   title: "Post Title",
-  //   date: "2026-01-01",
-  //   description: "Short summary.",
-  //   url: "https://linkedin.com/...",
-  // },
+  {
+    type: "news",
+    title: "SAG Framework for AI Voice Actor Casting",
+    date: "2025-09-12",
+    description:
+      "Pickford partners with SAG-AFTRA on a framework for ethical AI voice actor casting.",
+    url: "https://variety.com/2025/digital/news/sag-framework-pickford-ai-whispers-voice-actor-casting-1236515884/",
+  },
+  {
+    type: "news",
+    title: "Hollywood Tomorrow: AI Studios & Storytelling",
+    date: "2025-08-07",
+    description:
+      "Featured in the LA Times on the future of AI-driven storytelling in Hollywood.",
+    url: "https://www.latimes.com/entertainment-arts/movies/story/2025-08-07/hollywood-tomorrow-ai-studios-storytelling-luma-asteria",
+  },
+  {
+    type: "news",
+    title: "Pickford x ElevenLabs Partnership",
+    date: "2025-10-08",
+    description:
+      "Pickford partners with ElevenLabs for next-generation voice synthesis in interactive narratives.",
+    url: "https://elevenlabs.io/blog/pickford",
+  },
+  {
+    type: "news",
+    title: "Variety: Bernie Su & Pickford AI's Whispers",
+    date: "2025-05-14",
+    description:
+      "Variety covers the collaboration between Bernie Su and Pickford AI on Whispers.",
+    url: "https://variety.com/2025/digital/global/bernie-su-whispers-pickford-ai-1236397107/",
+  },
+  {
+    type: "news",
+    title: "Busan Film Festival Vision Section",
+    date: "2025-04-19",
+    description:
+      "Pickford selected for Busan International Film Festival's innovation platform.",
+    url: "https://variety.com/2025/film/news/busan-film-fest-vision-section-innovation-platform-1236492552/",
+  },
+  {
+    type: "podcast",
+    title: "Founders Quest: Building Pickford AI",
+    date: "2025-02-20",
+    description:
+      "Podcast episode discussing the journey of building Pickford AI from the ground up.",
+    url: "https://foundersquest.podbean.com/e/ep-15-cole-clifford-pickford-ai/",
+  },
+  {
+    type: "medium",
+    title: "If You Scream at the TV, the TV Might Scream Back",
+    date: "2025-01-24",
+    description:
+      "Exploring the future of interactive, responsive media experiences.",
+    url: "https://medium.com/pickford-ai/if-you-scream-at-the-tv-the-tv-might-scream-back-0d515d20fa96",
+  },
+  {
+    type: "medium",
+    title: "Pickford Dev Blog 004",
+    date: "2024-11-19",
+    description: "Latest engineering updates from the Pickford team.",
+    url: "https://medium.com/pickford-ai/pickford-dev-blog-004-f8727b00b3ad",
+  },
+  {
+    type: "medium",
+    title: "Pickford Dev Blog 003",
+    date: "2024-08-16",
+    description: "Deep dive into the technical architecture powering Pickford.",
+    url: "https://medium.com/pickford-ai/pickford-dev-blog-003-2d421151e515",
+  },
+  {
+    type: "medium",
+    title: "Pickford Dev Blog 002",
+    date: "2024-07-29",
+    description: "Engineering progress on Pickford's AI narrative engine.",
+    url: "https://medium.com/pickford-ai/pickford-dev-blog-002-2614305eab30",
+  },
+  {
+    type: "medium",
+    title: "Pickford Dev Blog 001",
+    date: "2024-07-12",
+    description: "Kicking off the Pickford dev blog series.",
+    url: "https://medium.com/pickford-ai/pickford-dev-blog-001-ad376f3cbc8c",
+  },
+  {
+    type: "medium",
+    title: "Pickford Dev Blog: Introducing Pickford",
+    date: "2024-06-28",
+    description: "Announcing Pickford and our vision for AI storytelling.",
+    url: "https://medium.com/pickford-ai/pickford-dev-blog-252f2d59628c",
+  },
+  {
+    type: "talk",
+    title: "Cash App: Production ML Pipelines with Prefect",
+    date: "2022-11-10",
+    description:
+      "Talk on building production ML and data pipelines at Cash App using Prefect.",
+    url: "https://www.eventbrite.com/e/cash-app-production-ml-and-data-pipelines-using-prefect-tickets-449491650627",
+  },
+  {
+    type: "medium",
+    title: "Applied Deep Learning at U of T",
+    date: "2019-04-26",
+    description:
+      "Guest lecture introducing applied deep learning at the University of Toronto.",
+    url: "https://medium.com/dessa-news/introducing-applied-deep-learning-at-uoft-3c72ffd99e87",
+  },
+  {
+    type: "talk",
+    title: "PyCon Canada 2018",
+    date: "2018-11-11",
+    description: "Conference talk at PyCon Canada.",
+    url: "https://2018.pycon.ca/talks/talk-PC-55535/",
+  },
+  {
+    type: "medium",
+    title: "Space 2 Vec",
+    date: "2019-01-18",
+    description:
+      "Using deep learning to identify supernovae in astronomical data.",
+    url: "https://medium.com/dessa-news/space-2-vec-fd900f5566",
+  },
+  {
+    type: "news",
+    title: "Canada's AI Moment",
+    date: "2017-11-17",
+    description:
+      "Financial Post op-ed on what Canada needs to do to secure its position in AI.",
+    url: "https://financialpost.com/entrepreneur/lets-not-miss-our-chance-what-canada-needs-to-do-to-secure-its-ai-moment",
+  },
+  {
+    type: "video",
+    title: "Reinventing Storytelling with Bing Gordon and Stephen Piron",
+    date: "2025-12-16",
+    description:
+      "A conversation on Pickford's new kind of storytelling between a verteren powerhouse, Bing, and Pickford's co-founder, Stephen.",
+    url: "https://www.youtube.com/watch?v=kNMi_tTkka8",
+  },
+  {
+    type: "news",
+    title:
+      "Hollywood’s Real AI Future May Have Little to Do with What’s on the Big Screen",
+    date: "2026-02-01",
+    description:
+      "A panel discussion on the future of AI in Hollywood at IndieWire Studio.",
+    url: "https://www.indiewire.com/news/events/can-ai-solve-hollywood-biggest-problems-sundance-panel-1235177211/",
+  },
 ];
 
 // Sort feed by date descending
@@ -160,7 +324,7 @@ feed.sort((a, b) => new Date(b.date) - new Date(a.date));
   });
 
   // Render project cards
-  projects.forEach((project) => {
+  projects.forEach((project, i) => {
     const card = document.createElement("div");
     card.className = "project-card";
     card.dataset.tags = project.tags.join(",");
@@ -184,6 +348,7 @@ feed.sort((a, b) => new Date(b.date) - new Date(a.date));
       <div class="project-card__links">${linksHtml}</div>
     `;
 
+    card.style.animationDelay = `${i * 0.07}s`;
     grid.appendChild(card);
   });
 
@@ -213,7 +378,7 @@ feed.sort((a, b) => new Date(b.date) - new Date(a.date));
   const container = document.getElementById("timeline");
   if (!container) return;
 
-  timeline.forEach((item) => {
+  timeline.forEach((item, i) => {
     const el = document.createElement("div");
     el.className = "timeline__item";
     el.innerHTML = `
@@ -223,6 +388,7 @@ feed.sort((a, b) => new Date(b.date) - new Date(a.date));
       <div class="timeline__org">${item.org}</div>
       <p class="timeline__desc">${item.description}</p>
     `;
+    el.style.animationDelay = `${i * 0.08}s`;
     container.appendChild(el);
   });
 })();
