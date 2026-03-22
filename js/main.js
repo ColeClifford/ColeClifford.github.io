@@ -3,6 +3,36 @@
 
 const projects = [
   {
+    title: "Pickford",
+    description: "",
+    tags: [],
+    links: {},
+  },
+  {
+    title: "OpenUSD",
+    description: "",
+    tags: [],
+    links: {},
+  },
+  {
+    title: "Director Style Sheets",
+    description: "",
+    tags: [],
+    links: {},
+  },
+  {
+    title: "Atlas",
+    description: "",
+    tags: [],
+    links: {},
+  },
+  {
+    title: "Orbit",
+    description: "",
+    tags: [],
+    links: {},
+  },
+  {
     title: "Space2Vec",
     description: "Using CNN's to find Type Ia Supernovae.",
     tags: ["Python", "Deep Learning"],
@@ -23,9 +53,21 @@ const projects = [
     },
   },
   {
+    title: "Pavlov",
+    description: "",
+    tags: [],
+    links: {},
+  },
+  {
     title: "Cards by Cole",
     description: "A completely offline, device-to-device card game.",
     tags: ["Swift", "iOS"],
+    links: {},
+  },
+  {
+    title: "Solon",
+    description: "",
+    tags: [],
     links: {},
   },
 ];
