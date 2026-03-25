@@ -77,7 +77,9 @@ const projects = [
     title: "Cards by Cole",
     description: "A completely offline, device-to-device card game.",
     tags: ["Swift", "iOS"],
-    links: {},
+    links: {
+      app: "https://apps.apple.com/ca/app/cards-by-cole/id6760673491",
+    },
   },
   {
     title: "Solon",
